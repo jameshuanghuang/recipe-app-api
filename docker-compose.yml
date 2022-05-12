@@ -10,7 +10,7 @@ services:
     volumes:
       - ./app:/app
     command: >
-      sh -c "python manage.py wait_for_db && configs:
+      sh -c "python manage.py wait_for_db &&:
             python manage.py migrate &&  
             python manage.py runserver 0.0.0.0:8000"
     environment:
@@ -24,6 +24,6 @@ services:
   db:
     image: postgres:10-alpine
     environment:
-      - POSTGRES=app
+      - POSTGRES_DB=app
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=supersecretpassword
